@@ -6,10 +6,10 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.28"
+						"string" : "3.27.8"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "string_calisma::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-string_calisma-Debug-662e24aff4a842f3ed1e.json",
+					"jsonFile" : "target-string_calisma-Debug-ee09c400e27ab98eba4d.json",
 					"name" : "string_calisma",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/alaz/Documents/GitHub/string_example/string_calisma/cmake-build-debug",
-		"source" : "/home/alaz/Documents/GitHub/string_example/string_calisma"
+		"build" : "C:/Users/ALAZ/Documents/GitHub/string_example/string_calisma/cmake-build-debug",
+		"source" : "C:/Users/ALAZ/Documents/GitHub/string_example/string_calisma"
 	},
 	"version" : 
 	{

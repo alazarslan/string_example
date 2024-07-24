@@ -10,9 +10,13 @@ int main() {
     //myVar->stringAssign();
     //myVar->stringBeginEnd();
     //myVar->stringReverseBeginEnd();
-    string a = "en buyuk cimbomm";
-    string str1 = "claz", str2 = "bessi";
-    int result1 = str1.compare(str2);
-    cout << result1;
+    //myVar->stringConstBeginEnd_withReverse();
+    //myVar->stringCopy();
+    //myVar->stringFind_of();
+    //myVar->stringInsert();
+    //myVar->stringResize();
+
+    // get_allocator, replace, shrink_to_fit, size, substr, swap
+    // bu fonksiyonlara bak!
     return 0;
 }
