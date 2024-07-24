@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "stringCalisma_class.h"
+#include <vector>
 using namespace std;
 void stringCalisma_class::stringAppend() {
     string str1 = "hello, ", str2 = "world";
@@ -52,14 +53,17 @@ void stringCalisma_class::stringReverseBeginEnd() {
     string a = "en buyuk cimbom";
     std::string::reverse_iterator it = a.rbegin();
     // tersten yazar.
+    vector<int> v1;
+    v1 = {9,2,6,4,5};
+    cout << *v1.begin() << endl << *v1.rend() << endl;
     while (*it != *a.rend()) {
-        cout << *it;
+        cout << *it << '\n';
         ++it;
     }
     // output: mobmic kuyub ne
 
     *a.rbegin() = 'i';
-    cout << endl << a;
+    cout << endl << a << " rend: " << *a.rend() << " end: " << *a.end();
     // rbegin ve rend komutlari begin ve end'in tam tersi.
     // .rbegin() komutu stringin sonuna isaret eden bir iterator atar.
     // .rend() komutu ise stringin basina isaret eden bir iterator atar.
@@ -229,7 +233,7 @@ void stringCalisma_class::stringResize() {
     int sz = str.size();
 
     str.resize (sz+2,'+');
-    cout << str << '\n';
+    cout << (str) << '\n';
 
     str.resize (14);
     cout << str << '\n';
@@ -237,6 +241,86 @@ void stringCalisma_class::stringResize() {
     str.resize (26,'*');
     cout << str << '\n';
 
-    // parametreye girilen değere göre stringin uzunluğunu değiştiriyo, girilen değer küçükse, parametreye girilen karakter sonrası silinir
-    // büyükse, parametreye ikinci bir değer girilmediyse null character ile stringi uzatır, girildiyse girilen karakterle uzatır.
+    // parametreye girilen değere göre stringin uzunluğunu değiştiriyo,
+    // girilen değer küçükse, parametreye girilen karakter sonrası silinir
+    // büyükse, parametreye ikinci bir değer girilmediyse null character ile stringi uzatır,
+    // girildiyse girilen karakterle uzatır.
 }
+
+void stringCalisma_class::stringReplace() {
+    string str = "Merhaba, dünya!";
+    string newStr = "kainat";
+    // 8. pozisyondan başlayarak 5 karakteri "evren" ile değiştir
+    str.replace(8, 5, newStr);
+    cout << "Yeni string: " << str << endl;
+
+    str = "Merhaba, dünya!";
+    // 8. pozisyondan başlayarak 5 karakteri "evren" ile değiştir
+    str.replace(8, 5, "evren");
+    cout << "Yeni string: " << str << endl;
+
+    str = "Merhaba, dünya!";
+    // 8. pozisyondan başlayarak 5 karakteri "evreninde" karakter dizisindeki
+    // ilk 5 karakterle değiştir
+    str.replace(8, 5, "evreninde", 5);
+    cout << "Yeni string: " << str << endl;
+
+    str = "Merhaba, dünya!";
+    newStr = "kainat";
+    // 8. pozisyondan başlayarak 5 karakteri newStr stringindeki ilk 3 karakterle değiştir
+    str.replace(8, 5, newStr, 0, 3);
+    cout << "Yeni string: " << str << endl;
+
+    str = "Merhaba, dünya!";
+    newStr = "galaksi";
+    // 8. pozisyondan itibaren 5 karakteri newStr'in tamamıyla değiştir
+    str.replace(str.begin() + 8, str.begin() + 13,
+        newStr.begin(), newStr.end());
+    cout << "Yeni string: " << str << endl;
+}
+
+void stringCalisma_class::stringShrinkToFit() {
+    string str = "Merhaba, dünya!";
+
+    // String'in başlangıç kapasitesini yazdır
+    cout << "Başlangıç kapasitesi: " << str.capacity() << endl;
+
+    // String'e bazı karakterler ekleyin
+    str.reserve(50); // Kapasiteyi artır
+    cout << "Yeni kapasite (reserve sonrası): " << str.capacity() << endl;
+
+    // String'in boyutunu küçültmeden önce kapasiteyi kontrol et
+    str.shrink_to_fit();
+    cout << "Kapasite (shrink_to_fit sonrası): " << str.capacity() << endl;
+}
+
+void stringCalisma_class::stringSubStr() {
+    string str = "Merhaba, dünya!";
+
+    // Başlangıç konumundan itibaren alt dize
+    string substr1 = str.substr(8);
+    cout << "Alt dize (8. pozisyondan itibaren): " << substr1 << endl;
+
+    // Başlangıç konumu ve uzunluğu belirterek alt dize
+    string substr2 = str.substr(8, 5);
+    cout << "Alt dize (8. pozisyondan itibaren 5 karakter): " << substr2 << endl;
+}
+
+void stringCalisma_class::stringSwap() {
+    string str1 = "Hello";
+    string str2 = "World";
+
+    cout << "Önce:\n";
+    cout << "str1: " << str1 << "\n";
+    cout << "str2: " << str2 << "\n";
+
+    // str1 ve str2 string'lerinin içeriklerini değiştir
+    str1.swap(str2);
+
+    cout << "Sonra:\n";
+    cout << "str1: " << str1 << "\n";
+    cout << "str2: " << str2 << "\n";
+}
+
+
+
