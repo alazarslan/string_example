@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "string_calisma"
+			"path" : "string_calisma.exe"
+		},
+		{
+			"path" : "string_calisma.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -35,7 +38,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++17 -fdiagnostics-color=always"
+					"fragment" : "-g -fdiagnostics-color=always"
 				}
 			],
 			"language" : "CXX",
@@ -66,12 +69,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "string_calisma",
-	"nameOnDisk" : "string_calisma",
+	"nameOnDisk" : "string_calisma.exe",
 	"paths" : 
 	{
 		"build" : ".",

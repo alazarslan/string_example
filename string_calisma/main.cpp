@@ -8,7 +8,7 @@ int main() {
     //myVar->stringAppend();
     //myVar->stringAssign();
     //myVar->stringBeginEnd();
-    myVar->stringReverseBeginEnd();
+    //myVar->stringReverseBeginEnd();
     //myVar->stringConstBeginEnd_withReverse();
     //myVar->stringCopy();
     //myVar->stringFind_of();
@@ -18,10 +18,7 @@ int main() {
     //myVar->stringShrinkToFit();
     //myVar->stringSubStr();
     //myVar->stringSwap();
-    string a = "alaz";
+    
 
-
-    // get_allocator, replace, shrink_to_fit, size, substr, swap
-    // bu fonksiyonlara bak!
     return 0;
 }

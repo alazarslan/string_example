@@ -1,0 +1,95 @@
+str.at() fonksiyonu, referans dönüyo, bakmak istediğin index lengthten yüksekse out of range exception.
+
+str.back() fonksiyonu, stringin son karakterini referans olarak dönüyo
+
+str.begin() başlangıç indexini point eden bir iterator returnluyo
+
+str.end() -> stringin past the end karakterini pointleyen bir iterator returnluyo. stringdeki son indexe
+end() - 1 ile ulaşabilirim. iterator üzerinden stringde değişiklik yapılabilir. string boşsa, begin() ile aynı 
+döner(outputta bir şey çıkmıyo).
+
+str.c_str() -> gönderilen stringi c-style string haline getirir(sonuna '\0' yani nullcharacter olan string)
+
+str.capacity() -> stringin memoryde kapladığı alanı verir. kapasite stringin uzunluğuna eşit olmayabilir,
+		  daha büyük olabilir
+
+str.cbegin() -> başlangıç indexini point eden bir const iterator returnluyo. bu iteratoru kullanarak sadece
+string üzerinde gezebiliyorum, stringi iteratorle değiştiremem.
+
+str.cend() -> stringin son indexin 1 fazlası pozisyonunda olan const iterator returnler. bu iteratorü değiştiremezsin
+(iterator points to past-the-end character of string). cend() - 1 ile son indexe ulaşılır.
+
+str.clear() -> stringi temizler, boş string verir.
+
+str.compare(str2)
+str.compare(n1,n2, str2, n3, n4) -> n1, n2 str için, n1 başlangıç indexi, n2 kaç karakter bakılacak. n3 ve n4 de 
+str2 için aynısı. eğerki karşılaştırılan stringler aynıysa fonksiyon 0 döner, str1'in str2'den farklı olan karakteri
+küçükse: (örneğin adana ve bursa diyelim) fonk. 0'dan küçük bir değer döner, tam tersiyse 0'dan büyük. eğer stringler
+(ada, adanakebap) şeklindeyse fonksiyon str'nin uzunluğu - str2nin uzunluğu (3 - 10 = -7) döner, str2 ve str karşı-
+laştırılıyosa da cevap 7 olur. n1 ve n3 değerlerine uzunluklardan büyük bir değer girildiğinde yine out of range
+exception atar.
+
+str.copy(char* s, n1, n2) -> ilk parametre karakter arrayi olmalı, n1 kopyalanan stringin uzunluktan büyükse
+out of range exception atar. n2 yine kaç karakter kopyalanacağını verir.
+
+str.crbegin() -> stringin son indexindeki karakteri pointleyen bir const iterator atar. bu iterator stringi sadece
+gezebilir, değişiklik yapamaz.
+
+str.crend() -> stringin "reverse end"ine(theoretical character preceding the first character of the string)
+yani başlangıçtan önceki varolduğu farz edilen karakteri pointleyen bir const iterator atar. crend()-1 diyerek
+stringin ilk indexine ulaşılabilir. const iterator string üstünde değişiklik yapamaz.
+
+str.data() -> gönderilen stringin c-style string versiyonunu returnler(sonunda '\0' olur). c_str()'in aynısıymış.
+char * cstr'ye kaydedebilirim cstyle stringi
+
+str.empty() -> string boş mu yani uzunluğu 0 mı kontrol eder. boşsa 1, doluysa 0 döner.
+
+str.erase(n, p) -> n'inci indexten başlayarak p kadar karakteri stringden sil. n stringin uzunluğundan büyükse
+out of range exception veriyo
+str.erase(str.begin()) -> parametreye girilen iterator hangi karakteri gösteriyosa o karakteri siler, 
+(str.end() silmeye çalıştığımda error veriyo)
+str.erase(it1, it2) -> [it1, it2) -> it1'den başlayıp it2'nin gösterdiği yere kadar her karakteri siler.
+
+str.find(p1, pos, n) -> p1 = string, char*(array) ya da char olabilir. pos stringin uzunluğundan fazlaysa asla karşılığı
+bulamaz. n kaç karaktere bakılacak onu söyler. find'ın bir karşılık bulabilmesi için p1'in içindeki her şeyin str'da
+bulunması lazım. fonkisyon pos'a girilen değerden sonraki indexlerde p1'i arar. pos girilmezse 0'dan itibaren arar. n
+uzunluğunu vermek için her zaman önce pos yazılmalı. find bir karşılık bulamazsa, string::npos yani döner. (döndürmeye
+çalıştığımda rastgele bir değer verdi, -1 vermedi)
+bir karşılık bulursa da bulunanın ilk indexini döner.
+
+str.find_first_not_of(p1,pos,n) -> parametreler dahil her şey find ile aynı, tek farkları bu fonksiyon p1'in olmadığı
+ilk karakteri arar.
+
+str.find_first_of(p1, pos, n) -> find'ın aynısı, sadece p1'in hepsini aramak yerine p1'deki bir karakterin karşılığını
+bulması yeterli. (p1 = "aeiou" ise, str'de a,e,i,o,u'dan hangisini ilk bulursa onun indexini döner, sıralı olmasına
+gerek yok)
+
+str.find_last_not_of(p1,pos,n) -> find_first_not_of'un aynısı, sadece sondan yani sağdan aramaya başlıyor. pos'a str'ın
+uzunluğundan büyük bir değer girilirse first_not_of'un aksine bütün stringi arıyo. pos'a -1 gibi negatif değer
+girince düzgün çalışıyo, pozitifte anlamadım?
+
+str.find_last_of(p1,pos,n) -> first_of'un aynısı ama tersten ilk karakteri arıyor. p1'deki herhangi bir karakteri bul-
+ması yeterli.
+
+str.front() -> stringdeki ilk karakteri referans döner. yani üstünde değişiklik yapılabilir. (begin()'deki gibi 
+iterator dönmez, direkt referans döner!!!)
+
+*********
+str.insert()
+*********
+
+str.length() -> stringin uzunluğunu döner. size()'ın aynısı
+
+str.max_size() -> stringin ulaşabilceği max uzunluğu döner(46.......... büyük bir sayı) .
+
+str::operator[] -> a[pos] -> .at(pos)'te pos stringin uzunluktan büyükse out of range exception atıyodu, 
+a[pos]'ta atmıyo, undefined behaviour veriyo (ne olacağı bilinmiyo). yine at()'deki gibi girilen indexi referans
+olarak return ediyo, yani değişiklik yapılabilir( a[0] = 'b' gibi). 
+not: If pos is equal to the string length, the function returns a reference to the null character 
+that follows the last character in the string (which should not be modified). demiş ama değiştirdim ve error çıkmadı.
+
+
+
+
+
+ 
